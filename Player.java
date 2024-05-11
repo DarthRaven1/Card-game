@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Player {
+public class Player { // This is my player class
     private ArrayList<Card> hand;
     private int score;
-     private int money;
+     private int money; // The money you start with
  
      public Player(int money) {
          this.hand = new ArrayList<Card>();
@@ -17,14 +17,14 @@ public class Player {
      }
  
      public void draw(Deck deck) {
-         this.hand.add(deck.drawCard());
+         this.hand.add(deck.drawCard()); // Drawing cards into your hand
      }
  
      public void discard(int index) {
-         this.hand.remove(index);
+         this.hand.remove(index); // Discarding cards from your hand
      }
  
-    public ArrayList<Card> findRun() {
+    public ArrayList<Card> findRun() { // Finding runs and putting them together
         Collections.sort(hand, new Comparator<Card>() {
             public int compare(Card c1, Card c2) {
                 return Integer.parseInt(c1.getValue()) - Integer.parseInt(c2.getValue());
@@ -47,7 +47,7 @@ public class Player {
     }
 }
  
- public int calculateScore() {
+ public int calculateScore() { // Adding the scores together
      int score = 0;
      for (Card card : hand) {
          String value = card.getValue();
@@ -64,5 +64,5 @@ public class Player {
      return score;
      }
      public void doublePoints() {
-    this.score *= 2; // Assuming you have a score attribute in your Player class
+    this.score *= 2; // For when the winner is the player that went out first
     }

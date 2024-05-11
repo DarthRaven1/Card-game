@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Game {
+public class Game { // This is my game class
     private Deck deck;
     private ArrayList<Player> players;
 
 
     public Game(int numPlayers, int startingMoney) {
         this.deck = new Deck();
-        this.deck.createDeck();
+        this.deck.createDeck(); // Creating the deck
         this.deck.shuffle();
 
 
@@ -24,7 +24,7 @@ public class Game {
     }
 
 
-public void deal(int numCards) {
+public void deal(int numCards) { // Checking if the deck has enough cards, so it won't deal the same one to multiple players
     if (numCards < 1 || deck.cards.size() < numCards * players.size()) {
         System.out.println("Not enough cards to deal " + numCards + " to each player.");
         return; // Early exit if there aren't enough cards to deal as requested
@@ -32,7 +32,7 @@ public void deal(int numCards) {
     for (Player player : this.players) {
         for (int i = 0; i < numCards; i++) {
             if (deck.cards.isEmpty()) {
-                System.out.println("The deck has run out of cards.");
+                System.out.println("The deck has run out of cards."); // For when the deck is empty
                 return; // Stop dealing if the deck is empty
             }
             player.draw(this.deck);
@@ -49,7 +49,7 @@ public void deal(int numCards) {
                 ArrayList<Card> run = player.findRun();
                 if (!run.isEmpty()) {
                     player.playRun(run);
-                     System.out.println("Player played a run: " + run);
+                     System.out.println("Player played a run: " + run); // When the players play runs
                 }
 
 
@@ -57,7 +57,7 @@ public void deal(int numCards) {
 
 
                 // Player discards a card
-                Card discardedCard = player.chooseCardToDiscard(); // You'll need to implement this method
+                Card discardedCard = player.chooseCardToDiscard(); // This lets the players choose which card to discard
                 player.discard(discardedCard);
                 System.out.println("Player discards: " + discardedCard);
 

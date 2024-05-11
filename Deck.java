@@ -4,7 +4,7 @@
 
 import java.util.Collections;
 
-public class Deck {
+public class Deck { // This is my deck class
     private ArrayList<Card> cards;
 
     public Deck() {
@@ -12,13 +12,13 @@ public class Deck {
     }
 
     public void createDeck() {
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-        String[] wilds = {"Joker"};
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"}; // This declares the suits
+        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"}; // This makes the cards and names them
+        String[] wilds = {"Joker"}; // This declares and names the joker(s)
 
         for(String suit : suits) {
             for(String value : values) {
-                this.cards.add(new Card(suit, value));
+                this.cards.add(new Card(suit, value)); // This creates each regular card and sorts them.
             }
         }
 
@@ -29,7 +29,7 @@ public class Deck {
     }
 
     public void shuffle() {
-        Collections.shuffle(this.cards);
+        Collections.shuffle(this.cards); // This shuffles the deck
     }
 
     public Card drawCard() {

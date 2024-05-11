@@ -2,7 +2,7 @@
 //For CTE Software Development 1
 //Instructor Kim Gross
 
-public class Card {
+public class Card { //this is my card class
     private String suit;
     private String value;
 
